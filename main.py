@@ -2,7 +2,7 @@ from sentence_transformers import SentenceTransformer, util
 
 # Modello locale per embedding
 model = SentenceTransformer(
-    "all-MiniLM-L6-v2"
+    "paraphrase-multilingual-MiniLM-L12-v2"
 )
 
 # Piccolo archivio documenti
@@ -10,7 +10,8 @@ documenti = [
     "Come richiedere un rimborso per un acquisto",
     "Procedura per cambiare la password dell'account",
     "Modalità di pagamento tramite carta di credito",
-    "Regole per la restituzione dei prodotti acquistati"
+    "Regole per la restituzione dei prodotti acquistati",
+    "Questa e' una domanda di assistenza"
 ]
 
 # La domanda dell'utente
@@ -22,6 +23,8 @@ embeddings_documenti = model.encode(
     convert_to_tensor=True
 )
 
+print("dim(embeddings_documenti):", embeddings_documenti.shape)
+print("embeddings_documenti: ", embeddings_documenti)
 # Creo embedding della query
 embedding_query = model.encode(
     query,

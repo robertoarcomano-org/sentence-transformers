@@ -5,7 +5,7 @@ import numpy as np
 
 # Modello embedding (scaricato una volta, poi locale)
 model = SentenceTransformer(
-    "all-MiniLM-L6-v2"
+    "paraphrase-multilingual-MiniLM-L12-v2"
 )
 
 
